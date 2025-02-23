@@ -1,8 +1,7 @@
-﻿using Microsoft.Extensions.Configuration;
-using SpotifyAPI.Web;
+﻿using SpotifyAPI.Web;
 using SpotifyAPI.Web.Auth;
-using System;
-using System.Threading.Tasks;
+
+namespace SpotifyIntegration.Web.Services;
 
 public class SpotifyAuthService
 {

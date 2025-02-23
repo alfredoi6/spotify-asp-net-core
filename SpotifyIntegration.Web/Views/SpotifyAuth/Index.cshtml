@@ -1,8 +1,32 @@
-﻿@model dynamic
-
-@{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
+﻿@{
+    ViewData["Title"] = "Spotify Integration";
 }
 
-<h2>title</h2>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Spotify Integration</h2>
+                </div>
+                <div class="card-body">
+                    @if (TempData["Message"] != null)
+                    {
+                        <div class="alert alert-success">@TempData["Message"]</div>
+                    }
+                    @if (TempData["Error"] != null)
+                    {
+                        <div class="alert alert-danger">@TempData["Error"]</div>
+                    }
+
+                    <div class="text-center">
+                        <p class="lead mb-4">Connect your Spotify account to access your profile and music preferences.</p>
+                        <a asp-action="Login" class="btn btn-success btn-lg">
+                            <i class="fab fa-spotify me-2"></i>Connect with Spotify
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

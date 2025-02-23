@@ -1,8 +1,36 @@
-﻿@model SpotifyAPI.Web.PrivateUser
-
+﻿@model SpotifyIntegration.Web.Models.SpotifyProfileViewModel
 @{
-    ViewBag.Title = "title";
-    Layout = "_Layout";
+    ViewData["Title"] = "Spotify Profile";
 }
 
-<h2>title</h2>
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header bg-primary text-white">
+                    <h2 class="mb-0">Spotify Profile</h2>
+                </div>
+                <div class="card-body">
+                    <div class="text-center mb-4">
+                        @if (!string.IsNullOrEmpty(Model.ProfileImageUrl))
+                        {
+                            <img src="@Model.ProfileImageUrl" alt="Profile Picture" class="rounded-circle mb-3" style="width: 150px; height: 150px;" />
+                        }
+                        <h3>@Model.DisplayName</h3>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p><strong>Email:</strong> @Model.Email</p>
+                            <p><strong>Country:</strong> @Model.Country</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p><strong>Followers:</strong> @Model.FollowersCount</p>
+                            <p><strong>Spotify URL:</strong> <a href="@Model.SpotifyUrl" target="_blank">View Profile</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+
+.idea/
+
+.vs/
+
+SpotifyIntegration.Tests/bin/
+
+SpotifyIntegration.Tests/obj/
+
+SpotifyIntegration.Web/bin/
+
+SpotifyIntegration.Web/obj/
+
+*.user

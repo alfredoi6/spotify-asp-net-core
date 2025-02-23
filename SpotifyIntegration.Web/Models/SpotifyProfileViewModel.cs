@@ -1,4 +1,6 @@
-﻿public class SpotifyProfileViewModel
+﻿namespace SpotifyIntegration.Web.Models;
+
+public class SpotifyProfileViewModel
 {
     public string DisplayName { get; set; }
     public string Email { get; set; }

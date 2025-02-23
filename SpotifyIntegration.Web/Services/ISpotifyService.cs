@@ -1,5 +1,7 @@
 ﻿using SpotifyAPI.Web;
 
+namespace SpotifyIntegration.Web.Services;
+
 public interface ISpotifyService
 {
     Task<FullTrack> GetTrackInfo(string trackId);

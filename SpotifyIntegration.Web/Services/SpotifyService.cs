@@ -1,5 +1,7 @@
 ﻿using SpotifyAPI.Web;
 
+namespace SpotifyIntegration.Web.Services;
+
 public class SpotifyService : ISpotifyService
 {
     private readonly ISpotifyClient _spotifyClient;
