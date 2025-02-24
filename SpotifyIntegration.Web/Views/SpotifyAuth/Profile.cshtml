@@ -1,12 +1,14 @@
-﻿@model SpotifyIntegration.Web.Models.SpotifyProfileViewModel
+﻿@using Newtonsoft.Json
+@using SpotifyAPI.Web
+@model SpotifyIntegration.Web.Models.SpotifyProfileViewModel
 @{
     ViewData["Title"] = "Spotify Profile";
 }
 
 <div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
+        <div class="col-md-10">
+            <div class="card mb-4">
                 <div class="card-header bg-primary text-white">
                     <h2 class="mb-0">Spotify Profile</h2>
                 </div>
@@ -31,6 +33,107 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card mb-4">
+                <div class="card-header bg-success text-white">
+                    <h3 class="mb-0">Top Tracks</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach (var track in Model.TopTracks)
+                        {
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <pre>
+                                        @JsonConvert.SerializeObject(track,Formatting.Indented)
+                                    </pre>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h3 class="mb-0">Top Artists</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach (var artist in Model.TopArtists)
+                        {
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <pre>
+                                        @JsonConvert.SerializeObject(artist,Formatting.Indented)
+                                    </pre>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h3 class="mb-0">Playlists</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach (var playlist in Model.Playlists)
+                        {
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                        @playlist.Name
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h3 class="mb-0">Artists</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach (var artist in Model.Artists)
+                        {
+                            
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <span>
+                                        @artist    
+                                    </span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h3 class="mb-0">Genres</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        @foreach (var genre in Model.Genres)
+                        {
+                            <div class="col-md-6 mb-3">
+                                <div class="d-flex align-items-center">
+                                    <span>
+                                        @genre    
+                                    </span>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>            
+            
+            
         </div>
     </div>
 </div>
+

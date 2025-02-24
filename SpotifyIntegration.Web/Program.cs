@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using SpotifyIntegration.Web.Services;
 using SpotifyWebApplication.Data;
 
 namespace SpotifyIntegration.Web;
@@ -18,8 +19,23 @@ public class Program
 
         builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
             .AddEntityFrameworkStores<ApplicationDbContext>();
-        builder.Services.AddControllersWithViews();
 
+        if (builder.Environment.IsDevelopment())
+        {
+            builder.Services.AddControllersWithViews()
+                .AddRazorRuntimeCompilation(); // Enable runtime compilation
+
+        }
+        else
+        {
+            builder.Services.AddControllersWithViews();    
+        }
+        
+        
+
+        builder.Services.AddHttpContextAccessor();
+        builder.Services.AddScoped<SpotifyAuthService>();
+        
         var app = builder.Build();
 
         // Configure the HTTP request pipeline.
